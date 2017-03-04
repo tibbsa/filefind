@@ -1,0 +1,7 @@
+The following files were found.  File requests are permitted 24 hours
+per day.
+
+SysOp       : Anthony Tibbs               Max Speed      : 14,400
+Location    : Ottawa, Ontario, Canada     Telephone      : (unpublished)
+Flags       : V32B,V42B,MNP,LAPM
+

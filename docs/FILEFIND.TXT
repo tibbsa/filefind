@@ -1,0 +1,352 @@
+
+
+
+
+
+
+
+
+
+
+
+
+                                    FileFind 1.0
+                        Allfix Filefind Request Processor for
+                             All FILES.BBS-style Systems
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         Copyright (C) 1998 by Anthony Tibbs
+
+
+
+
+
+                                  Table of Contents
+
+            The Legal Issues ..........................................3
+            Some Background Information ...............................4
+             Developement Information .................................4
+            Installation ..............................................4
+             System Requirements ......................................5
+             What You Have (or Don't Have) ............................5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 2 -
+
+
+
+
+
+
+            The Legal Issues
+
+            Maximus and Squish are trademarks of Lanius Corporation  (or
+            SCI Communications, depending on the version).
+
+            MS-DOS, Windows, Windows 95,  and Windows NT are  trademarks
+            of Microsoft Corporation.
+
+            IBM,  OS/2,  and  PC-DOS  are  trademarks  of  International
+            Business Machines.
+
+            All other  trade names  are trademarks  of their  respective
+            owners.
+
+
+            The  FileFind  program  and  all  associated  utilities  and
+            documentation are  the  property  of  Anthony  Tibbs  (``the
+            author'') and may not be sold without prior permission.  The
+            program may  be  distributed unaltered  and  as a  unit  via
+            electronic bulletin board systems,  the Internet, and  other
+            on-line services.
+
+            FileFind  is  free  for  use  by  noncommercial  users.    A
+            noncommercial user  is, by  my definition,  simply a  single
+            person who  is  not operating  their  BBS/File system  in  a
+            commercial environment (business, government, etc.).
+
+            This program may  NOT be  used in  a commercial  environment
+            (business,  government,  educational,  etc.)  without  prior
+            permission from the author.   After all, you could be  using
+            my software to make money!
+
+            Shareware/PD clubs  and  organizations  are  hereby  granted
+            permission  to  include   FileFind  in  their   collections,
+            provided that they  notify the author  of their  intentions.
+            Shareware/PD distribution companies, however, should contact
+            the author before including FileFind in their collections.
+
+                                    NO WARRANTY!
+
+            THE AUTHOR OF THIS PROGRAM DISCLAIMS ALL WARRANTIES,  EITHER
+            EXPRESSED  OR  IMPLIED,  INCLUDING,  BUT  NOT  LIMITED   TO,
+            WARRANTIES OF MERCHANTABILITY AND  FITNESS FOR A  PARTICULAR
+            PURPOSE, WITH  REGARD  TO  THE  SOFTWARE,  THE  ACCOMPANYING
+            DOCUMENTATION, AND  THE MEDIUM  ON  WHICH THIS  MATERIAL  IS
+            PROVIDED.  UNDER NO CIRCUMSTANCES SHALL THE AUTHOR BE LIABLE
+            TO  YOU  FOR  ANY  CONSEQUENTIAL,  SPECIAL,  INCIDENTAL,  OR
+            INDIRECT DAMAGES, OF ANY KIND, ARISING OUT OF THE USE OF THE
+            SOFTWARE, EVEN  IF  THE  AUTHOR HAS  BEEN  NOTIFIED  OF  THE
+            POSSIBILITY OF SUCH DAMAGES.
+
+            YOUR USE  OF THIS  PROGRAM  CONSTITUTES YOUR  ACCEPTANCE  OF
+            THESE TERMS.
+
+
+                                        - 3 -
+
+
+
+
+
+
+            Some Background Information
+
+            FileFind is  designed to  respond to  ``FileFind'' requests.
+            This method of  locating information via  FidoNet-compatible
+            systems was first  introduced by Allfix,  a .TIC  processor.
+            To the best of  my knowledge, this  (rather large) piece  of
+            software is the only package which supports these requests.
+
+            There are several people  that I know who  would like to  be
+            able to  process these  requests automatically,  but do  not
+            want to use Allfix to achieve this goal.  One of the biggest
+            reasons that people don't want to  use Allfix is because  of
+            it's bloated  size.   As  well,  when you've  been  using  a
+            complete Areafix/.TIC processor for years, it's a real  PITA
+            to convert all of your configuration files over to some  new
+            system.
+
+
+            Developement Information
+
+            History:
+               Date       Ver               Notes/Description
+                ---       1.1    - Completely rewritten documentation.
+             Mar 18 98    1.0    - Initial public release
+
+            * Techie Note:   For those who just  need to know,  FileFind
+            (and all associated utilities) were written in C for  speed.
+            The documentation  in  version 1.0  was  written  completely
+            within  Edit,  because  of   some  technical  difficulties.
+            However, in  version  1.1+,  all of  the  documentation  was
+            written in Microsoft Word 6.0a for Windows and postprocessed
+            by a quick hack written by Scott Dudley (thanks, Scott!).
+
+
+            Installation
+
+            Installation of  Filefind  is quite  simple.   There  is  no
+            installation utility required  to setup Filefind.   All  you
+            have to do is  dearchive Filefind into  a directory of  your
+            choice (in this  documentation, we will  assume Filefind  is
+            installed in C:\FileFind), and then modify the configuration
+            file to suit your system.
+
+            For Maximus  users  (I've  assumed that  nobody  is  running
+            anything older  than  version  2.0), a  special  utility  is
+            included to convert  all of your  FILEAREA.CTL files into  a
+            FileFind configuration  file.   This utility  can be  easily
+            expanded to  support other  BBS systems  - if  you have  the
+            structures/format for a particular system, please feel  free
+            to send it to me.  (See ``Contacting the Author'' at the end
+            of this documentation.)
+
+
+
+
+                                        - 4 -
+
+
+
+
+
+            For other systems, however, you will have to manually  enter
+            all of  your file  areas into  your FileFind  configuration.
+            This need only be done once, but if you have a large  number
+            of file areas this can be time consuming.
+
+            System Requirements
+
+            FileFind  should   run  fine   on  the   following   minimum
+            configuration:
+
+                 *MS-DOS/PC-DOS 3.3+, Windows  95, Windows NT,  or OS/2
+                  2.1+
+                 * 120k of disk space
+                 * MINIMUM  of 196k  of  free conventional  memory  (see
+                  below)
+                 * Squish or *.MSG message bases to scan
+                 * FILES.BBS file areas to scan (see note below)
+
+            Optionally, if you wish  to use SortArea, loading  SHARE.EXE
+            is a very good idea.
+
+            Your exact memory requirements will  vary.  Keeping in  mind
+            that each message  area requires about  480 bytes, and  each
+            file  area  requires  about  312  bytes,  the  exact  memory
+            requirements  will   depend  heavily   on  the   number   of
+            message/file areas you are scanning.   For a typical  system
+            scanning 2 message areas  and 45 file  areas, you will  need
+            about 205k of free conventional memory.
+
+            NOTE:     Neither FileFind nor  SortArea support  multi-line
+                      descriptions.  This  means that your  descriptions
+                      must  be  on  one  line  in  the  FILES.BBS  file.
+                      SortArea will not preserve multi-line descriptions
+                      or comment lines, so please make a backup of  your
+                      file lists before running this program if you  are
+                      in doubt.   FileFind  will perform  all  necassary
+                      word-wrapping when it writes reply messages.
+
+            What You Have (or Don't Have)
+
+            You should find the following files in the FileFind archive:
+
+                CONVERT.EXE     A small  utility  to convert  a  Maximus
+                                2.x/3.x FILEAREA.CTL file into a  format
+                                which can be used by FileFind.
+                SORTAREA.EXE    Sorts your FILES.BBS listings.
+                FILEFIND.EXE    The main FileFind program.
+                FILEFIND.CFG    Example configuration  for FileFind  and
+                                SortArea.
+                MAXAREAS.CFG    Example configuration  for FileFind  and
+                                SortArea.
+                HEADER.TXT      Example response message header.
+                FOOTER.TXT      Example response message footer.
+
+
+
+                                        - 5 -
+
+
+
+
+
+            If you are missing any of these files, please obtain a  copy
+            of FileFind from another source.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        - 6 -
